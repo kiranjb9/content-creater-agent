@@ -45,4 +45,7 @@ async def invoke_agent(request: AgentRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error invoking agent: {str(e)}")
 
+# VERY IMPORTANT FOR VERCEL 🚀
+asgi_app = app 
+
 # uvicorn.run(app, host="0.0.0.0", port=8000)
