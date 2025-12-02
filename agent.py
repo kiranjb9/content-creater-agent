@@ -2,11 +2,12 @@ from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 from langchain.agents import create_agent
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-if not GROQ_API_KEY:
-    raise RuntimeError("GROQ_API_KEY not set. Add it to Vercel env vars or a local .env for development.")
+# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# if not GROQ_API_KEY:
+#     raise RuntimeError("GROQ_API_KEY not set. Add it to Vercel env vars or a local .env for development.")
 
 @tool
 def save_content(filename: str, content: str) -> str:
