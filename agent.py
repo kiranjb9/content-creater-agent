@@ -4,10 +4,10 @@ from langchain.agents import create_agent
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-# if not GROQ_API_KEY:
-#     raise RuntimeError("GROQ_API_KEY not set. Add it to Vercel env vars or a local .env for development.")
+# load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    raise RuntimeError("GROQ_API_KEY not set. Add it to Vercel env vars or a local .env for development.")
 
 @tool
 def save_content(filename: str, content: str) -> str:
@@ -56,7 +56,7 @@ SYSTEM_MESSAGE = (
     "\n- Provide trending Hashtags for social media posts"
 )
 
-llm = ChatGroq(model="openai/gpt-oss-20b", temperature=0.7)
+llm = ChatGroq(model="openai/gpt-oss-20b", temperature=0.7, api_key=GROQ_API_KEY)
 agent = create_agent(llm, TOOLS, system_prompt=SYSTEM_MESSAGE)
 
 
