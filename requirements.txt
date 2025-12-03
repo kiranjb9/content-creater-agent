@@ -2,6 +2,6 @@ fastapi
 uvicorn
 jinja2
 langchain
-langchain_groq
+langchain-groq
 langgraph
 python-dotenv
